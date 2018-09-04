@@ -18,6 +18,10 @@ attr_reader :receipt, :bill
     puts "Total: £" + sum.to_s
   end
 
+  def item_in_basket?(item)
+    @receipt.any? { |item| item[:item].name == item.name }
+  end
+
   def print_receipt
     @receipt.each do |item| 
     puts "#{item[:quantity]} x #{item[:item].name}" 
@@ -33,3 +37,10 @@ attr_reader :receipt, :bill
 
 
 end
+
+ch = Checkout.new
+i1 = Item.new('pizza', 5)
+
+ch.scan(i1)
+p ch.receipt
+p ch.item_in_basket?(i1)
