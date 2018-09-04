@@ -14,14 +14,18 @@ attr_reader :receipt, :bill
 
   def total 
     return 0 if @receipt.length == 0
-    @receipt.map { |line| line[:item].price * line[:quantity] }.inject('+')
+    sum = @receipt.map { |line| line[:item].price * line[:quantity] }.inject('+')
+    puts "Total: £" + sum.to_s
   end
 
   def print_receipt
     @receipt.each do |item| 
-    "#{item[:quantity]} x #{item[:item].name}" 
+    puts "#{item[:quantity]} x #{item[:item].name}" 
     end
   end
+
+
+  private
 
   def return_item_price(item)
     "£#{item.price}"
