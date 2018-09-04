@@ -3,6 +3,7 @@ require 'shop'
 describe Shop do 
   subject(:shop) { Shop.new }
   let(:milk) { instance_double Item, name: 'milk', price: 1 }
+  let(:bread) { instance_double Item, name: 'bread', price: 2 }
 
   describe '#basket' do 
     it 'defaults with an empty basket' do 

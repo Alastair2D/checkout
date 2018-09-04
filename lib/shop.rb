@@ -8,8 +8,8 @@ class Shop
     @basket = []
   end
 
-  def add(item)
-    @basket << item 
+  def add(item, quantity = 1)
+    @basket << item
   end
  
 
