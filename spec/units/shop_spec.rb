@@ -14,7 +14,12 @@ describe Shop do
   describe '#add' do 
     it 'adds an item to the basket' do 
       subject.add(milk)
-      expect(subject.basket).to include milk
+      expect(subject.basket).to eq [{item: milk, quantity: 1}]
+    end
+    it 'adds multiple items to the basket' do 
+      subject.add(milk, 2)
+      subject.add(bread, 3)
+      expect(subject.basket).to eq [{item: milk, quantity: 2}, {item: bread, quantity: 3}]
     end
   end
 

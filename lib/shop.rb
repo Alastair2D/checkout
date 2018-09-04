@@ -9,8 +9,14 @@ class Shop
   end
 
   def add(item, quantity = 1)
-    @basket << item
+    # @basket << item 
+    @basket.push({ item: item, quantity: quantity })
   end
- 
+
+  def list_basket
+    @basket.each do |item| 
+      puts "#{item[:quantity]} x #{item[:item].name}" 
+    end
+  end
 
 end
